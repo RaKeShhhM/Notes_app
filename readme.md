@@ -4,11 +4,12 @@ A lightweight, responsive, browser-based note-taking app built with **vanilla HT
 
 ---
 
-🎥 Demo Video
+## 🎥 Demo Video
 
-You can watch a quick demo of the app here:
+[![Watch the demo](https://img.youtube.com/vi/KYAkEGYMNSw/0.jpg)](https://youtu.be/KYAkEGYMNSw)
 
-![App Demo](./demo.mp4)
+Click the image above to watch the demo of the Notes App on YouTube.
+
 
 
 ## Features
