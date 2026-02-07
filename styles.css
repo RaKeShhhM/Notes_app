@@ -1,0 +1,117 @@
+:root{
+    --bg-1: linear-gradient(135deg,#667eea,#764ba2);
+    --glass: rgba(255,255,255,0.14);
+    --white: #fff;
+    --muted: rgba(255,255,255,0.8);
+    --card-radius: 14px;
+}
+
+/* DARK MODE: stronger background + readable text */
+body.dark{
+--glass: rgba(10,10,12,0.18);
+--muted: rgba(230,235,248,0.95);
+background: linear-gradient(135deg,#071126,#0b1726); /* darker bg for dark mode */
+color: #e6eef8;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+html,body{height:100%}
+body{
+    min-height:100vh;
+    background:var(--bg-1);
+    padding:28px 18px;
+    color:var(--white);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    transition:background 300ms ease;
+}
+
+.app{
+    max-width:1100px;margin:0 auto;
+}
+
+header{
+    display:flex;gap:16px;align-items:center;justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.left {
+    display:flex;gap:16px;align-items:center;
+}
+
+h1{font-size:1.6rem;letter-spacing:0.2px}
+
+.controls{display:flex;gap:8px;align-items:center}
+
+/* Search input visibility & focus */
+.search {
+min-width:220px;
+padding:8px 12px;
+border-radius:999px;
+border: 1px solid rgba(255,255,255,0.06);
+background: rgba(255,255,255,0.12);
+color: inherit;
+width:320px;
+transition: box-shadow 160ms, border-color 160ms, background 160ms;
+}
+
+/* Dark-mode search tweak */
+body.dark .search {
+background: rgba(255,255,255,0.06);
+border-color: rgba(255,255,255,0.08);
+color: #e6eef8;
+}
+.search:focus {
+outline: none;
+box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+border-color: rgba(255,255,255,0.22);
+}
+
+.btn{
+    background:var(--glass);border:none;padding:10px 14px;border-radius:999px;cursor:pointer;display:inline-flex;gap:8px;align-items:center;color:var(--white);
+    box-shadow:0 8px 20px rgba(0,0,0,0.18);
+}
+
+.btn.primary{background:linear-gradient(90deg,#ffd3a5,#ff8a8a); color:#111}
+
+.toggles{display:flex;gap:8px;align-items:center}
+
+main{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+
+.note{
+    background:var(--glass);backdrop-filter:blur(8px);padding:12px;border-radius:var(--card-radius);min-height:150px;display:flex;flex-direction:column;gap:8px;position:relative;
+    /* removed user-select:none and cursor:grab to allow normal typing & selection */
+}
+
+.note.dragging{opacity:0.6}
+
+.note .meta{display:flex;justify-content:space-between;align-items:center;gap:8px}
+
+/* Title and content styles - improved for visibility and scrolling */
+.title{width:100%;border:none;background:transparent;color:inherit;font-weight:600;font-size:1rem;outline:none;resize:none;padding:4px 6px;line-height:1.2;max-height:96px;overflow:auto}
+.content{width:100%;flex:1;border:none;background:transparent;color:inherit;outline:none;resize:vertical;padding:6px 6px;min-height:80px;max-height:360px;overflow:auto}
+
+/* make sure text areas show caret and are selectable */
+.title, .content {user-select:text}
+
+.tools{display:flex;gap:6px;align-items:center}
+.tools button{border:none;background:rgba(255,255,255,0.08);padding:6px 8px;border-radius:8px;cursor:pointer}
+.tools .pin.active{background:linear-gradient(90deg,#ffd36b,#ffb36b)}
+
+.palette{display:flex;gap:6px}
+.sw{width:18px;height:18px;border-radius:5px;cursor:pointer;border:2px solid rgba(255,255,255,0.12)}
+
+.date{font-size:11px;opacity:0.9}
+
+/* view-mode overlay (simple) */
+.view-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.05),transparent);border-radius:inherit;pointer-events:none}
+
+/* responsive */
+@media (max-width:700px){
+    header{flex-direction:column;align-items:stretch;gap:12px}
+    .search{width:100%}
+    main{grid-template-columns:1fr}
+}
+
+/* small helper styles */
+.muted{opacity:0.85;font-size:13px}
